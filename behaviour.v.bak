@@ -1,0 +1,19 @@
+module behaviour (clk, address, data);
+input clk;
+input [7:0] address;
+output reg [24:0] data;
+
+always@(posedge clk)begin
+	case (address)
+		8'b00000000 : data <= 24'b;
+		8'b00000000 : data <= 24'b;
+		8'b00000000 : data <= 24'b;
+		8'b00000000 : data <= 24'b;
+		8'b00000000 : data <= 24'b;
+		8'b00000000 : data <= 24'b;
+		8'b00000000 : data <= 24'b;
+		8'b00000000 : data <= 24'b;
+		default : data <= 24'b111110000000000000000000;//do nothing
+	endcase
+end
+endmodule

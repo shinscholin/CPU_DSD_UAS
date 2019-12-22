@@ -1,0 +1,19 @@
+module mem_int (clk, ctrl, addr_in, data_in, addr_out, data_out);
+	input clk, ctrl;
+	input [7:0] addr_in; //input from CU
+	input [23:0] data_in;//input from memory 
+	output reg [7:0] addr_out = 0; //output to memory
+	output reg [23:0] data_out = 0;//output to CU
+		
+	always @(posedge clk) begin
+		//ctrl 0 = read; ctrl 1 = write;
+		if(ctrl) begin
+			addr_out <= addr_in;
+		end
+		else begin
+			data_out <= data_in;
+		end
+	end
+endmodule
+
+

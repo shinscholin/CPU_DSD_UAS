@@ -1,0 +1,20 @@
+opcode instruction list
+
+0000		add	(register1 + register2)	
+0001 		sub	(register1 - register2)
+0010 		or	(register1 OR register2)
+0011 		and	(register1 AND register2)
+0100 		xor	(register1 XOR register2)
+0101 		not	(NOT register1)
+0110 		lshift1	(lshift register1)
+0111 		rshift1	(rshift register1)
+1000 		lrotate	(lrotate register1)
+1001	 	rrotate	(rrotate register1)
+1010	 	clr	(clear registers)
+1011 		mov	(load register)	
+1100 		jump	(jump address)
+1101		jc	(jump if carry)
+11111111 	nop	(do nothing)
+
+
+

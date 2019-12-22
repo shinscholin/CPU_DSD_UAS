@@ -1,0 +1,32 @@
+module regbank (reg1, reg2, data, clk, clear, ctrl, read1, read2);
+	input clk, clear, ctrl;
+	input [1:0] reg1, reg2;
+	input [7:0] data;
+	output reg [7:0] read1, read2;
+	reg [7:0] registerfile [3:0];
+	reg [3:0] i;
+	
+	initial registerfile [0] <= 0;
+	initial registerfile [1] <= 0;
+	initial registerfile [2] <= 0;
+	initial registerfile [3] <= 0;
+	
+	always @(negedge clk) 
+	begin 
+		if(ctrl) begin
+			registerfile[reg1] <= data; 
+		end
+		else begin
+			read1 <= registerfile[reg1]; 
+			read2 <= registerfile[reg2];
+		end
+		
+		if(clear) 
+		   begin
+				registerfile [0] <= 0;
+				registerfile [1] <= 0;
+				registerfile [2] <= 0;
+				registerfile [3] <= 0;
+			end
+	end
+endmodule
